@@ -1,5 +1,6 @@
 import Leaflet from 'leaflet'
-import { streetlightPopup } from './Popups'
+import { wardStyle, polling_districtsStyle } from './Styles'
+import { wardPopup, polling_districtsPopup } from './Popups'
 
 const Configuration = {
     Map: {
@@ -14,23 +15,27 @@ const Configuration = {
     DynamicData: 
     [
         {
-            key: 'streetlights',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=highways:street_lights&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            key: 'Polling Districts',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_districts&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
             layerOptions: {
-                onEachFeature: streetlightPopup,
-                maxZoom: 16,
-                pointToLayer: (feature, latlng) => {
-                    return Leaflet.circleMarker(latlng, {
-                        radius: 8,
-                        fillColor: '#15863a',
-                        color: '#000',
-                        weight: 1,
-                        fillOpacity: 1
-                    })
-                },
+                onEachFeature: polling_districtsPopup,
+                maxZoom: 2,
+                style:polling_districtsStyle
             },
-            displayOverlay: false
-        }
+            displayOverlay: true,
+            visibleByDefault: true
+        },
+        {
+            key: 'Ward',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:ward&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            layerOptions: {
+                onEachFeature: wardPopup,
+                maxZoom: 2,
+                style: wardStyle
+            },
+            displayOverlay: true,
+            visibleByDefault: true
+        },
     ],
     StaticData: 
     [

@@ -1,15 +1,20 @@
-import { getTargetUrl } from '../Helpers'
+const wardPopup = (feature, layer) => {
+  const content = `<div class="item"><i class="fa fa-list" aria-hidden="true"></i><p class="title">Ward</p>
+    <p></p>
+    <p class="info">Name: ${feature.properties.ward_name}</p>
+    </div>`
+  layer.bindPopup(content)
+}
 
-const streetlightPopup = (feature, layer) => {
-  const varName = getTargetUrl()
-
-  const content = `<div class="item"><i class="tag fa fa-map-marker"></i><p class="title">Location </p><p class="info">${feature.properties.location_description}</p></div><hr/>
-  <div class="item"><i class="tag fa fa-tag"></i><p class="title">Number on street light </p><p class="info">${feature.properties.central_asset_id}</p></div>
-  <a class="button-primary" href="${varName}/street-lighting/report-an-issue/fault-type?assetId=${feature.properties.central_asset_id}&siteCode=${feature.properties.site_code}">Report this street light</a>`
-
+const polling_districtsPopup = (feature, layer) => {
+  const content = `<div class="item"><i class="fa fa-list" aria-hidden="true"></i><p class="title">Polling District</p>
+    <p></p>
+    <p class="info">Name: ${feature.properties.polling_name}</p>
+    </div>`
   layer.bindPopup(content)
 }
 
 export {
-  streetlightPopup
+  wardPopup,
+  polling_districtsPopup
 }
