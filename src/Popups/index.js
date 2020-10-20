@@ -20,6 +20,7 @@ const polling_stationsPopup = (feature, layer) => {
   <p class="info">No: ${feature.properties.station_no}</p>
   <p class="info">Address: ${feature.properties.address}</p>
   </div>`
+  layer.bindPopup(content)
 }
 
 export {

@@ -15,7 +15,7 @@ const polling_districtsStyle = {
 }
 
 const polling_stationStyle = {
-    radius: 4,
+    radius: 6,
     color: '#000',
     weight:2,
     opacity:1,
