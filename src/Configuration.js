@@ -1,5 +1,5 @@
 import Leaflet from 'leaflet'
-import { wardStyle, polling_districtsStyle,polling_stationStyle } from './Styles'
+import { wardStyle, polling_districtsStyle, polling_stationStyle } from './Styles'
 import { wardPopup, polling_districtsPopup, polling_stationsPopup } from './Popups'
 
 const Configuration = {
@@ -44,7 +44,7 @@ const Configuration = {
                     maxZoom: 2,
                     style: polling_stationStyle,
                     pointToLayer: (feature, latlng) => {
-                        return Leaflet.circleMarker (latlng);
+                        return Leaflet.circleMarker (latlng)
                 }
             },
             displayOverlay: true,
