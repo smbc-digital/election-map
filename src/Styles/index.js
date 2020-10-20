@@ -1,5 +1,5 @@
 const wardStyle = {
-    color: '#8dd3c7',
+    color: '#266aa9',
     weight:3,
     opacity:0.75,
     fillColor: '#ccebc5',
@@ -7,7 +7,7 @@ const wardStyle = {
 }
 
 const polling_districtsStyle = {
-    color: '#80b1d3',
+    color: '#0000ff',
     weight:1,
     opacity:1,
     fillColor: '#ccebc5',
