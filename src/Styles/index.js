@@ -14,7 +14,17 @@ const polling_districtsStyle = {
     fillOpacity:0
 }
 
+const polling_stationStyle = {
+    radius: 4,
+    color: '#000',
+    weight:2,
+    opacity:1,
+    fillColor: '#bc80bd',
+    fillOpacity:1
+}
+
 export {
     wardStyle,
-    polling_districtsStyle
+    polling_districtsStyle,
+    polling_stationStyle
 }
