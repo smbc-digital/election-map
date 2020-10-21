@@ -17,7 +17,7 @@ const polling_districtsPopup = (feature, layer) => {
 const polling_stationsPopup = (feature, layer) => {
   const content = `<div class="item"><i class="fa fa-list" aria-hidden="true"></i><p class="title">Polling Station</p>
   <p></p>
-  <p class="info">No: ${feature.properties.station_no}</p>
+  <p class="info"> Polling Station No: ${feature.properties.station_no}</p>
   <p class="info">Address: ${feature.properties.address}</p>
   </div>`
   layer.bindPopup(content)
