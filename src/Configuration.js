@@ -1,5 +1,5 @@
-//import Leaflet from 'leaflet'
-import { wardStyle, polling_districtsStyle, polling_station_polygon_15mStyle } from './Styles'
+import Leaflet from 'leaflet'
+import { wardStyle, polling_districtsStyle, polling_stationStyle } from './Styles'
 import { wardPopup, polling_districtsPopup, polling_stationsPopup } from './Popups'
 
 const Configuration = {
@@ -38,16 +38,17 @@ const Configuration = {
         },
         {
             key: 'Polling Stations',
-            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_station_polygon_15m&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
+            url: 'https://spatial.stockport.gov.uk/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=political:polling_stations_4326&outputFormat=application/json&bbox={0},EPSG:4326&srsName=EPSG:4326',
                 layerOptions: {
                     onEachFeature: polling_stationsPopup,
                     maxZoom: 2,
-                    style: polling_station_polygon_15mStyle,
-                    //pointToLayer: (feature, latlng) => {
-                    //    return Leaflet.circleMarker (latlng)
-                },
-                displayOverlay: true,
-                visibleByDefault: true
+                    style: polling_stationStyle,
+                    pointToLayer: (feature, latlng) => {
+                        return Leaflet.circleMarker (latlng)
+                }
+            },
+            displayOverlay: true,
+            visibleByDefault: true
         },    
     ],
     StaticData: 
